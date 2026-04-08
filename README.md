@@ -1,6 +1,6 @@
 # CSC394 mini projects
 
-Unified **FastAPI + Uvicorn** hub for local web mini projects: textbook summarizer, LAST EXIT, white noise, PaperPlay (browser), and related assets.
+Unified **FastAPI + Uvicorn** hub for local web mini projects: textbook summarizer, LAST EXIT, white noise, PaperPlay (browser), password strength checker, and related assets.
 
 ## Run the hub
 
@@ -26,4 +26,5 @@ Copy `textbook_summarizer/.env.example` to `.env` and set `OPENAI_API_KEY`.
 | `last_exit/` | Interactive fiction |
 | `white_noise/` | Static white-noise UI |
 | `paperplay_web/` | PaperPlay games in the browser |
+| `password-strength-checker-master/` | Static password strength checker UI |
 | `paperplay/` | Optional PySide6 desktop suite |

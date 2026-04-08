@@ -30,6 +30,7 @@ def load_story() -> dict:
 def index(request: Request):
     story = load_story()
     return templates.TemplateResponse(
+        request,
         "index.html",
-        {"request": request, "story": story},
+        {"story": story},
     )

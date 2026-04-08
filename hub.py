@@ -47,6 +47,14 @@ def build_hub() -> FastAPI:
         StaticFiles(directory=str(ROOT / "paperplay_web"), html=True),
         name="paperplay_web",
     )
+    hub.mount(
+        "/password-strength-checker",
+        StaticFiles(
+            directory=str(ROOT / "password-strength-checker-master"),
+            html=True,
+        ),
+        name="password_strength_checker",
+    )
 
     return hub
 
