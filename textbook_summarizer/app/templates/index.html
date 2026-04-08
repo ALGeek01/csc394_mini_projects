@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Textbook Summarizer</title>
+    <link rel="stylesheet" href="{{ mount_prefix }}/static/styles.css" />
+  </head>
+  <body data-api-prefix="{{ mount_prefix }}">
+    <main class="container">
+      <h1>Student Textbook Summarizer</h1>
+      <p>
+        Paste assigned chapter text or upload a textbook PDF. Get short,
+        study-focused bullet summaries for class reading.
+      </p>
+
+      <form id="summarize-form">
+        <label for="chapter_title">Chapter / Topic (optional)</label>
+        <input id="chapter_title" name="chapter_title" type="text" placeholder="Chapter 4: Photosynthesis" />
+
+        <label for="page_range">Assigned pages (optional)</label>
+        <input id="page_range" name="page_range" type="text" placeholder="Pages 112-126" />
+
+        <label for="text_input">Textbook text (optional if uploading PDF)</label>
+        <textarea
+          id="text_input"
+          name="text_input"
+          rows="10"
+          placeholder="Paste assigned chapter/pages here..."
+        ></textarea>
+
+        <label for="pdf_file">Upload PDF (optional if using text)</label>
+        <input id="pdf_file" name="pdf_file" type="file" accept="application/pdf" />
+
+        <label for="max_points">How short should the summary be?</label>
+        <select id="max_points" name="max_points">
+          <option value="2">2 bullet points</option>
+          <option value="3" selected>3 bullet points</option>
+          <option value="4">4 bullet points</option>
+          <option value="5">5 bullet points</option>
+          <option value="6">6 bullet points</option>
+        </select>
+
+        <label for="summary_style">Summary style</label>
+        <select id="summary_style" name="summary_style">
+          <option value="quick-review" selected>Quick Review</option>
+          <option value="exam-ready">Exam Ready</option>
+          <option value="simple">Simple Language</option>
+        </select>
+
+        <label for="output_language">Output language</label>
+        <input id="output_language" name="output_language" type="text" value="English" />
+
+        <button type="submit">Summarize</button>
+      </form>
+
+      <section>
+        <h2>Summary</h2>
+        <pre id="output">Your summary will appear here.</pre>
+      </section>
+    </main>
+    <script src="{{ mount_prefix }}/static/app.js"></script>
+  </body>
+  </html>

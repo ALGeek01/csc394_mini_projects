@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LAST EXIT — a text game</title>
+  <link rel="stylesheet" href="{{ url_for('last_exit_static', path='style.css') }}" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <main class="shell">
+    <header class="topbar">
+      <span class="brand">LAST_EXIT</span>
+      <span class="status" id="sceneTitle">—</span>
+      <div class="audio-wrap">
+        <button type="button" id="btnMute" class="btn-ghost" title="Toggle ambient">🔈</button>
+        <audio id="ambient" loop playsinline preload="auto">
+          <source src="{{ url_for('last_exit_static', path='ambient.ogg') }}" type="audio/ogg" />
+          <source src="{{ url_for('last_exit_static', path='ambient.mp3') }}" type="audio/mpeg" />
+        </audio>
+      </div>
+    </header>
+
+    <div class="crt-frame" id="crtFrame">
+      <div class="crt-bezel">
+        <div class="crt-static-layer" id="crtStatic" aria-hidden="true"></div>
+        <article class="terminal crt-tube" id="terminal" tabindex="0" aria-live="polite">
+          <div class="terminal-header">
+            <span class="prompt" aria-hidden="true">user@last-exit:~$</span>
+            <span class="terminal-hint" id="typeHint">Click or press a key to skip typing</span>
+          </div>
+          <pre class="story-text" id="storyText"><span class="story-typed" id="storyTyped"></span><span class="type-cursor" id="typeCursor" aria-hidden="true">▍</span></pre>
+        </article>
+      </div>
+    </div>
+
+    <nav class="choices" id="choices" aria-label="Choices"></nav>
+
+    <footer class="foot">
+      <span class="hint">Inspired by narrative games like <a href="https://adarkroom.doublespeakgames.com/" rel="noopener noreferrer">A Dark Room</a>.</span>
+    </footer>
+  </main>
+
+  <script id="story-data" type="application/json">{{ story | tojson }}</script>
+  <script src="{{ url_for('last_exit_static', path='game.js') }}"></script>
+</body>
+</html>

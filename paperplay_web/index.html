@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PaperPlay — Web</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <button type="button" class="btn ghost" id="btnHome" hidden>← Library</button>
+        <h1 class="brand">PaperPlay</h1>
+        <label class="theme-toggle"
+          ><input type="checkbox" id="themeDark" /> Dark</label
+        >
+      </header>
+
+      <main id="viewMenu" class="view">
+        <p class="lede">
+          Pen-and-paper style games in the browser — same lineup as the desktop
+          PySide6 suite, playable here for a consistent course hub.
+        </p>
+        <div class="game-grid" id="gameCards"></div>
+      </main>
+
+      <section id="viewGame" class="view" hidden>
+        <div class="game-toolbar">
+          <h2 id="gameTitle"></h2>
+          <p class="game-desc" id="gameDesc"></p>
+          <button type="button" class="btn" id="btnReset">Reset</button>
+        </div>
+        <div id="gameMount" class="game-mount"></div>
+      </section>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

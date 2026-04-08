@@ -1,0 +1,562 @@
+:root {
+  --bg: #f4f2ee;
+  --surface: #fff;
+  --text: #1c1b19;
+  --muted: #5c5854;
+  --accent: #2a6f6f;
+  --accent2: #c45c3e;
+  --border: #d8d4cd;
+  --shadow: rgba(28, 27, 25, 0.08);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.45;
+}
+
+body.theme-dark {
+  --bg: #1a1c1e;
+  --surface: #25282c;
+  --text: #eceae7;
+  --muted: #a8a39c;
+  --accent: #5eb8b8;
+  --accent2: #e8917a;
+  --border: #3a3f45;
+  --shadow: rgba(0, 0, 0, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2.5rem;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0;
+  flex: 1;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.lede {
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+  max-width: 42rem;
+}
+
+.game-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+.game-card {
+  text-align: left;
+  padding: 1rem 1.1rem;
+  border-radius: 0.65rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 1px 3px var(--shadow);
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.1s;
+}
+
+.game-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.game-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.game-card .cat {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.game-card p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.game-toolbar {
+  margin-bottom: 1rem;
+}
+
+.game-toolbar h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+}
+
+.game-desc {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.85rem;
+  border-radius: 0.45rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+}
+
+.btn.ghost {
+  background: transparent;
+}
+
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+body.theme-dark .btn.primary {
+  color: #0f1112;
+}
+
+.game-mount {
+  padding: 0.5rem 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+label.inline {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.status {
+  font-weight: 600;
+  min-height: 1.5rem;
+}
+
+/* Tic-tac-toe & Connect4 */
+.grid-ttt {
+  display: grid;
+  grid-template-columns: repeat(3, 3.2rem);
+  gap: 4px;
+}
+
+.grid-ttt button {
+  width: 3.2rem;
+  height: 3.2rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 0.35rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.grid-c4 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--accent);
+  padding: 8px;
+  border-radius: 0.4rem;
+  width: max-content;
+}
+
+.grid-c4 .drop-row {
+  display: flex;
+  gap: 3px;
+  justify-content: flex-start;
+}
+
+.grid-c4 .col-btn {
+  width: 2.35rem;
+  height: 1.65rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.25rem;
+  background: color-mix(in oklab, var(--surface) 85%, transparent);
+  font-size: 0.65rem;
+}
+
+.grid-c4 .cells {
+  display: grid;
+  grid-template-columns: repeat(7, 2.35rem);
+  grid-template-rows: repeat(6, 2.35rem);
+  gap: 3px;
+}
+
+.grid-c4 .cell {
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.grid-c4 .cell.p1 {
+  background: #e8d44a;
+  border-color: #c4a800;
+}
+
+.grid-c4 .cell.p2 {
+  background: #d94a4a;
+  border-color: #a82828;
+}
+
+body.theme-dark .grid-c4 .cell.p1 {
+  background: #d4c030;
+}
+
+body.theme-dark .grid-c4 .cell.p2 {
+  background: #e05555;
+}
+
+/* Nim */
+.nim-pile {
+  font-size: 2rem;
+  letter-spacing: 0.15em;
+  user-select: none;
+}
+
+.nim-btns button {
+  margin-right: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
+/* Hangman */
+.hang-visual {
+  font-family: ui-monospace, monospace;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  white-space: pre;
+  color: var(--muted);
+}
+
+.word-mask {
+  font-size: 1.5rem;
+  letter-spacing: 0.35em;
+  font-family: ui-monospace, monospace;
+}
+
+.keygrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  max-width: 22rem;
+}
+
+.keygrid button {
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.keygrid button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* Dots and boxes */
+.dab-wrap {
+  display: inline-block;
+  user-select: none;
+}
+
+.dab-row {
+  display: flex;
+  align-items: center;
+}
+
+.dab-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--text);
+  flex-shrink: 0;
+}
+
+.dab-h {
+  width: 28px;
+  height: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.dab-h::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 50%;
+  height: 3px;
+  transform: translateY(-50%);
+  background: transparent;
+  border-radius: 2px;
+}
+
+.dab-h.p1::after {
+  background: var(--accent);
+}
+
+.dab-h.p2::after {
+  background: var(--accent2);
+}
+
+.dab-gap {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.dab-vslot {
+  width: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dab-v {
+  width: 10px;
+  height: 28px;
+  cursor: pointer;
+  position: relative;
+}
+
+.dab-v::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 2px;
+  bottom: 2px;
+  width: 3px;
+  transform: translateX(-50%);
+  background: transparent;
+  border-radius: 2px;
+}
+
+.dab-v.p1::after {
+  background: var(--accent);
+}
+
+.dab-v.p2::after {
+  background: var(--accent2);
+}
+
+/* Sudoku */
+.sudoku-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 2rem);
+  gap: 0;
+  border: 2px solid var(--text);
+  width: max-content;
+}
+
+.sudoku-grid input {
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  font-size: 0.95rem;
+  padding: 0;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.sudoku-grid input.given {
+  font-weight: 700;
+  background: color-mix(in oklab, var(--accent) 12%, var(--surface));
+}
+
+.sudoku-grid .thick-r {
+  border-right-width: 2px;
+}
+
+.sudoku-grid .thick-b {
+  border-bottom-width: 2px;
+}
+
+/* Nonogram */
+.nonogram-wrap {
+  display: inline-block;
+  overflow: auto;
+  max-width: 100%;
+}
+
+.nono-table {
+  border-collapse: collapse;
+  font-size: 0.65rem;
+}
+
+.nono-table td,
+.nono-table th {
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: middle;
+  padding: 2px 4px;
+}
+
+.nono-table .corner {
+  background: transparent;
+  border: none;
+}
+
+.nono-table .colclue {
+  font-size: 0.6rem;
+  line-height: 1.15;
+  min-width: 1.5rem;
+  color: var(--muted);
+}
+
+.nono-table .rowclue {
+  font-size: 0.65rem;
+  line-height: 1.15;
+  text-align: right;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.nono-table td.play {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+}
+
+.nono-table .clue {
+  background: color-mix(in oklab, var(--muted) 15%, var(--surface));
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.nono-table .cell {
+  cursor: pointer;
+  background: var(--surface);
+}
+
+.nono-table .cell.filled {
+  background: var(--text);
+}
+
+.nono-table .cell.mark-x {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 3px,
+    var(--border) 3px,
+    var(--border) 4px
+  );
+}
+
+/* Crossword */
+.xword-table input {
+  width: 1.75rem;
+  height: 1.75rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  border: 1px solid var(--border);
+  padding: 0;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.xword-table .block {
+  background: var(--text);
+  border-color: var(--text);
+}
+
+.xword-table td {
+  position: relative;
+  padding: 0;
+}
+
+.xword-table .num {
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  font-size: 0.55rem;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.clue-list {
+  columns: 2;
+  gap: 1.5rem;
+  font-size: 0.88rem;
+}
+
+.clue-list h4 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.clue-list p {
+  margin: 0.15rem 0;
+}
+
+select.select {
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}

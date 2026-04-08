@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSC394 Mini Projects Hub</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        line-height: 1.45;
+      }
+      body {
+        margin: 0;
+        padding: 2rem clamp(1rem, 4vw, 3rem);
+        max-width: 52rem;
+      }
+      h1 {
+        font-weight: 650;
+        letter-spacing: -0.02em;
+      }
+      .grid {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      @media (min-width: 36rem) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      article {
+        border: 1px solid color-mix(in oklab, CanvasText 18%, transparent);
+        border-radius: 0.75rem;
+        padding: 1rem 1.1rem;
+        background: color-mix(in oklab, Canvas 96%, CanvasText 4%);
+      }
+      article h2 {
+        margin: 0 0 0.35rem;
+        font-size: 1.05rem;
+      }
+      article p {
+        margin: 0 0 0.75rem;
+        font-size: 0.92rem;
+        opacity: 0.92;
+      }
+      a.cta {
+        display: inline-block;
+        font-weight: 600;
+        text-decoration: none;
+        color: LinkText;
+      }
+      a.cta:hover {
+        text-decoration: underline;
+      }
+      code {
+        font-size: 0.85em;
+      }
+      .placeholder {
+        opacity: 0.85;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>CSC394 Mini Projects</h1>
+      <p>
+        Local hub: course mini projects. Start the server with
+        <code>uvicorn hub:app --reload</code> from this folder, then use the links
+        below.
+      </p>
+    </header>
+
+    <section class="grid" aria-label="Projects">
+      <article>
+        <h2>Student Textbook Summarizer</h2>
+        <p>FastAPI + OpenAI: paste text or upload a PDF for study bullet summaries.</p>
+        <a class="cta" href="/summarizer/">Open summarizer</a>
+      </article>
+
+      <article>
+        <h2>LAST EXIT</h2>
+        <p>Browser text adventure (story in <code>story.json</code>).</p>
+        <a class="cta" href="/last-exit/">Open LAST EXIT</a>
+      </article>
+
+      <article>
+        <h2>White Noise</h2>
+        <p>Web Audio white noise, tone, volume, and sleep timer.</p>
+        <a class="cta" href="/white-noise/">Open white noise</a>
+      </article>
+
+      <article>
+        <h2>PaperPlay</h2>
+        <p>
+          Same game lineup in the browser (tic-tac-toe, Connect 4, Nim, Hangman, dots
+          &amp; boxes, Sudoku, nonogram, sample crossword). Dark mode matches the desktop
+          feel.
+        </p>
+        <a class="cta" href="/paperplay/">Open PaperPlay (web)</a>
+        <p style="margin-top: 0.75rem; font-size: 0.88rem; opacity: 0.9">
+          Optional native UI (PySide6):
+          <code>cd paperplay &amp;&amp; pip install -e &quot;.&quot; &amp;&amp; python -m paperplay</code>
+        </p>
+      </article>
+
+      <article>
+        <h2>Fifth mini project</h2>
+        <p class="placeholder">Placeholder for your fifth project when it is ready.</p>
+      </article>
+    </section>
+  </body>
+</html>

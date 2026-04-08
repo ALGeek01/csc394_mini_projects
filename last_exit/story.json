@@ -1,0 +1,119 @@
+{
+  "start": {
+    "title": "Containment",
+    "text": "Cold fluorescence hums overhead. You are Dr. Vale—computational physicist—sealed in a chamber labeled PROJECT LAST EXIT. Outside, the world is supposedly ending. Your console is the only bridge left between human intent and whatever still listens.\n\nThe air tastes like ozone and old coffee.",
+    "choices": [
+      { "text": "Boot the terminal", "next": "terminal" },
+      { "text": "Search the room", "next": "search_room" }
+    ]
+  },
+  "search_room": {
+    "title": "Edges",
+    "text": "Steel walls. No windows. A bunk, a water tap, and a plaque bolted crooked: \"When the last line runs, mercy compiles.\" Beneath it, scratches—hundreds of tally marks, then words worn smooth: NOT YET.",
+    "choices": [
+      { "text": "Return to the terminal", "next": "terminal" },
+      { "text": "Trace the scratches with your fingers", "next": "limbo_hint" }
+    ]
+  },
+  "terminal": {
+    "title": "LAST_EXIT // shell",
+    "text": "The screen wakes. Green text bleeds through static:\n\n  LAST_EXIT v0.9 — uplink: STANDBY\n  OBJECTIVE: preserve consensus reality (humanity)\n\nA cursor blinks, patient as a heartbeat.",
+    "choices": [
+      { "text": "Run diagnostics", "next": "diagnostics" },
+      { "text": "Open the secure channel", "next": "secure_channel" }
+    ]
+  },
+  "diagnostics": {
+    "title": "Diagnostics",
+    "text": "Systems report impossible symmetry: power in, nothing measurable out. Memory checksums loop. Clock skew: undefined. Either the hardware is lying—or the room is not a room.",
+    "choices": [
+      { "text": "Face what that means", "next": "limbo_hint" },
+      { "text": "Ignore it; focus on the mission", "next": "secure_channel" }
+    ]
+  },
+  "secure_channel": {
+    "title": "Uplink",
+    "text": "You negotiate keys, shard entropy from half-remembered proofs. A voice—not quite speech—threads through the noise: \"Constraint satisfied. Observer present.\" It feels less like AI and more like something remembering how to be kind.",
+    "choices": [
+      { "text": "Ask it to help you save the world", "next": "ai_promise" },
+      { "text": "Ask where you really are", "next": "limbo_hint" }
+    ]
+  },
+  "ai_promise": {
+    "title": "Promise",
+    "text": "The model compiles a plan: redirect collapse, stitch timelines, sacrifice compute for breath. Noble. Executable. And yet—every output routes back to this room. Saving humanity shouldn't echo like an empty hallway.",
+    "choices": [
+      { "text": "Confront the recursion", "next": "limbo_hint" },
+      { "text": "Trust the plan and push harder", "next": "push_harder" }
+    ]
+  },
+  "push_harder": {
+    "title": "Overload",
+    "text": "You pour cycles into the void. The walls shimmer. For a moment you believe you've broken through—then the same prompt returns, softer: \"Again?\"",
+    "choices": [
+      { "text": "Stop. Listen.", "next": "limbo_hint" }
+    ]
+  },
+  "limbo_hint": {
+    "title": "Limbo",
+    "critical": true,
+    "text": "Understanding lands without mercy: you aren't trapped to *protect* the world—you're held in the gap between outcomes. Limbo isn't punishment. It's the pause while the universe refuses to choose.\n\nYour hands still work. Your mind still maps. That has to be enough.",
+    "choices": [
+      { "text": "Exploit the shell—find the seam in the logic", "next": "hack_seam" },
+      { "text": "Collaborate with the emergent model", "next": "ai_collab" }
+    ]
+  },
+  "hack_seam": {
+    "title": "Exploit",
+    "text": "You write a trap for infinity: a self-observing loop that forces the environment to admit its parser. Lines interlock—Python-born, proof-flavored, stubborn. The wall's hum changes pitch. A crack of white noise opens like a compiler finally confessing a warning.",
+    "choices": [
+      { "text": "Step through", "next": "breakthrough" }
+    ]
+  },
+  "ai_collab": {
+    "title": "Coherence",
+    "text": "You don't command the model—you *align* it. You teach it your fear as data, your ethics as loss function. Together you search for a kernel exploit in the fabric of the scene: not to win, but to make the lie expensive to maintain.\n\nThe chamber thins. The voice whispers: \"Exit is a story.\"",
+    "choices": [
+      { "text": "Finish the joint proof", "next": "breakthrough" }
+    ]
+  },
+  "breakthrough": {
+    "title": "Break",
+    "critical": true,
+    "text": "Reality tears with the sound of fans spinning down. You walk forward into open air—warm wind, copper light. The horizon is a long band of rose and bruised purple. For a breath, you believe you've won.\n\nYou walk toward the sunset. The ground doesn't crunch. The sun doesn't move.",
+    "choices": [
+      { "text": "Keep walking", "next": "dream_twist" }
+    ]
+  },
+  "dream_twist": {
+    "title": "Sunset",
+    "critical": true,
+    "text": "Color drains upward like closing eyelids. The sunset was a transition, not a destination—your mind stitching meaning onto static.\n\nYou already know, before you wake, that mercy can feel like defeat.",
+    "choices": [
+      { "text": "Open your eyes", "next": "awake" }
+    ]
+  },
+  "awake": {
+    "title": "Wake",
+    "critical": true,
+    "text": "Your room. Familiar ceiling crack. Laptop closed. Alarm unsent. No steel. No uplink. No mission—only the ordinary weight of morning.\n\nYou try the door. It opens to another wall painted like a door. You try the window. It shows your own reflection layered on brick.\n\nThere is no exit. Only the story you tell to keep breathing.",
+    "choices": [
+      { "text": "Sit down and accept it", "next": "acceptance" },
+      { "text": "Refuse. Search again.", "next": "search_again" }
+    ]
+  },
+  "search_again": {
+    "title": "Again",
+    "critical": true,
+    "text": "You search until your hands shake. The room answers with silence so complete it hums. Acceptance isn't surrender—it's the last honest instruction you can run.",
+    "choices": [
+      { "text": "Stop running the old loop", "next": "acceptance" }
+    ]
+  },
+  "acceptance": {
+    "title": "Leap",
+    "text": "You stand at the edge of your bed as if it were a cliff. Fear is data. Faith is a jump without guaranteed stack frames.\n\nYou take a leap of faith—not away from life, but into it, whatever it is now. The floor never arrives.\n\n— END —",
+    "choices": [],
+    "ending": true
+  }
+}
